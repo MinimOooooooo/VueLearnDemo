@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueStart</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-if="status1"></div>
+    <div v-else-if ='status2'></div>
+    <div v-else></div>
+    <div v-show=""></div>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            msg:'Vue Start!'
+        }
+    })
+</script>
+</body>
+</html>
