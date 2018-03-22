@@ -7,18 +7,26 @@
 </head>
 <body>
 <div id="app">
-    <div v-if="status1"></div>
-    <div v-else-if ='status2'></div>
-    <div v-else></div>
-    <div v-show=""></div>
+    <div v-if="status===1">{{status1}}</div>
+    <div v-else-if ='status===2'>{{status2}}</div>
+    <div v-else>{{status3}}</div>
+    <div v-show="statusShow">
+        {{showMsg}}
+    </div>
 </div>
 <script type="text/javascript">
     var app = new Vue({
         el:'#app',
         data:{
-            msg:'Vue Start!'
+            status:1,
+            showMsg:'show now!',
+            status1:'I am status1',
+            status2:'I am status2',
+            status3:'I am status3',
+            statusShow:true
         }
     })
+    //if/else 控制是否加载 ， show控制显示隐藏== display:none
 </script>
 </body>
 </html>
