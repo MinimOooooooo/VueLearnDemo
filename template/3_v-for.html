@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueFor</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in sortItems">
+            {{item}}
+        </li>
+    </ul>
+    <ol>
+        <li v-for="(obj,index) in objs"><!--第一个赋值为对象，后续才为索引值-->
+           {{index}}:{{obj.age}}-{{obj.bug}}
+        </li>
+    </ol>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            items:['6','10','12','15','55','24'],
+            objs:[
+                {age:25, bug:'bug'},
+                {age:11, bug:'bug'},
+                {age:33, bug:'bug'},
+                {age:26, bug:'bug'}
+                ]
+        },
+        computed:{
+            sortItems:function () {
+                return this.items.sort(sortNumber);
+            },
+            sortObj:function () {
+                return sortArray(this.objs,'age')
+            }
+        }
+    });
+    function sortNumber(a,b) {
+        return a-b;
+    }
+    //数组对象排序方法
+    function sortArray(array,key){
+        return array.sort(function (a,b) {
+            var x=a[key],y=b[key];
+            return  ((x<y)?-1:((x>y)?1:0))
+        })
+    }
+</script>
+</body>
+</html>
