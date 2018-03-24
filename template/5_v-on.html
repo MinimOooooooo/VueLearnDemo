@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    本场比赛得分:{{point}}
+    <div class="buttons">
+        <button v-on:click="add">加分</button>
+        <button @click="minus">减分</button>
+        <input type="text" v-on:keyup.13="points" v-model="point2">
+    </div>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            point:0,
+            point2:2
+        },
+        methods:{
+            add:function () {
+                this.point++;
+            },
+            minus:function () {
+                this.point--;
+            },
+            points:function () {
+                this.point=this.point+parseInt(this.point2)
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

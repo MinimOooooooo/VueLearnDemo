@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-text&v-html</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+   <span>{{msg}}</span><=<span v-text="msg"></span><!--v-text 当找不到msg时不会显示-->
+    <span v-html="html"></span><!--容易受到 xss 攻击-->
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            msg:'msg',
+            html:'<h2>Nemyer JR</h2>'
+        }
+    });
+
+</script>
+</body>
+</html>
