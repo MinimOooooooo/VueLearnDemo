@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>原始文本信息:{{msg}}-aaa</p>
+    <h2>input</h2>
+    <p>v-model:<input type="text" v-model="msg"></p>
+    <p>v-model.lazy:<input type="text" v-model.lazy="msg"></p>
+    <p>v-model.number:<input type="text" v-model.number="msg"></p>
+    <p>v-model.trim:<input type="text" v-model.trim="msg"></p>
+    <h2>文本域</h2>
+    <p><textarea v-model="msg" id="" cols="30" rows="10"></textarea></p>
+    <h2>多选框绑定一个值</h2>
+    <input type="checkbox" v-model="isTrue" id="isTrue">
+    <label for="isTrue">{{isTrue}}</label>
+    <h2>多选框绑定多个值</h2>
+    <input type="checkbox" v-model="names" id="name1" value="name1">
+    <label for="name1">name1</label>
+    <input type="checkbox" v-model="names" id="name2" value="name2">
+    <label for="name2">name2</label>
+    <input type="checkbox" v-model="names" id="name3" value="name3">
+    <label for="name3">name3</label>
+    <p>names:{{names}}</p>
+    <h2>单选框绑定</h2>
+    <input type="radio" v-model="male" id="man" value="男">
+    <label for="man">男</label>
+    <input type="radio" v-model="male" id="woman" value="女">
+    <label for="woman">女</label>
+    <p>您选择的性别是:{{male}}</p>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            msg:'message',
+            isTrue:true,
+            names:[],
+            male:'男'
+        },
+    });
+
+</script>
+</body>
+</html>
