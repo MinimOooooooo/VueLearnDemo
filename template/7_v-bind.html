@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <link rel="stylesheet" href="../assets/css/v-bind.css">
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p><img :src="src" alt="">logo</p>
+    <p><a :href="url" target="_blank">ipo3</a></p>
+    <hr>
+    <div :class="className">绑定class</div>
+    <div :class="{classA:isOK}">绑定判断</div>
+    <div :class="[classA,classB]">绑定数组</div>
+    <div :class="isOK?classA:classB">绑定三元运算符</div>
+    <hr>
+    <input type="checkbox" id="switch" v-model="isOK">
+    <label for="switch">您当前的状态为-{{isOK}}</label>
+    <hr>
+    <div :style="{color:red,fontSize:fz}">绑定style</div>
+    <div :style="styleObj">绑定style对象</div>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            src:'http://www.ipo3.com/appv2/Tpl/xiniu_ipo3/images/ipo3/tt/logo.jpg?v=5',
+            url:'http://www.ipo3.com',
+            isOK:false,
+            classA:'classA',
+            classB:'classB',
+            className:'classA',
+            red:'red',
+            fz:'12px',
+            styleObj:{
+                color:'green',
+                fontSize:'18px'
+            }
+        }
+    })
+</script>
+</body>
+</html>
