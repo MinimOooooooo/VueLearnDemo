@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-pre,v-clock&v-once</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>{{msg}}</div>
+    <div v-pre>{{msg}}</div>
+    <div v-cloak>{{end}}</div>
+    <div v-once>{{msg}}</div>
+    <div><input type="text" v-model="msg"></div>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            msg:'Vue Start!',
+            end:'渲染完成才显示！'
+        }
+    })
+</script>
+</body>
+</html>
