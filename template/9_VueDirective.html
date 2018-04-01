@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.directive</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-demo="color">{{num}}</p>
+    <p><button @click="add" >点击加一</button></p>
+    <p><button onclick="unbind()">解除绑定</button></p>
+</div>
+<script type="text/javascript">
+    function unbind () {
+        app.$destroy()
+    }
+    Vue.directive("demo",{
+        bind:function (el,binding) {
+            console.log('1:bind');
+            console.log(el);
+            console.log(binding);
+            el.style='color:'+binding.value;
+        },
+        insert:function () {
+            console.log('2:insert');
+        },
+        update:function () {
+            console.log('3:update');
+        },
+        componentUpdated:function () {
+            console.log('4:componentUpdated');
+        },
+        unbind:function () {
+            console.log('5:unbind');
+        }
+    });
+    var app = new Vue({
+        el:'#app',
+        data:{
+            num:10,
+            color:'red'
+        },
+        methods:{
+            add:function () {
+                this.num++
+            },
+        }
+    })
+</script>
+</body>
+</html>
